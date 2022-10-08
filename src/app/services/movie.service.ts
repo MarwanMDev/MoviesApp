@@ -9,9 +9,9 @@ import { environment } from 'src/environments/environment';
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  getTopRatedMovies(page = 1): Observable<any> {
+  getTopRatedMovies(page = 1, segmentModel: string): Observable<any> {
     return this.http.get(
-      `${environment.baseUrl}/movie/popular?api_key=${environment.apiKey}&page=${page}`
+      `${environment.baseUrl}/movie/${segmentModel}?api_key=${environment.apiKey}&page=${page}`
     );
   }
 
